@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>TypeScript HTML App</title>
+	<link rel="stylesheet" href="app.css" type="text/css" />
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/kendo.core.js"></script>
+	<script src="js/kendo.data.js"></script>
+	<script src="js/kendo.binder.js"></script>
+
+	<script src="js/kendo.editable.js"></script>
+	<script src="js/kendo.selectable.js"></script>
+	<script src="js/kendo.listview.js"></script>
+	<script src="kendo.extends.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h1>TypeScript HTML App</h1>
+	<script type="text/javascript">
+		var view;
+		$(function () {
+			view = new App();
+			view.init();
+		});
+	</script>
+	<div id="view">
+		<div data-row-template="rowListTemplate" data-role="groupinglistview" data-bind="source: data"></div>
+
+		<script type="text/x-kendo-template" id="rowListTemplate">
+			<div>
+				<input id="id-${ProductID}" type="checkbox" data-bind="checked: Discontinued" />
+				<label for="id-${ProductID}">${ProductName} (<span data-bind="text: Discontinued"></span>)</label>
+			</div>
+		</script>
+	</div>
+</body>
+</html>
